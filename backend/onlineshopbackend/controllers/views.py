@@ -1,5 +1,4 @@
-from django.shortcuts import render, HttpResponseRedirect
-from django.contrib.auth.models import User, UserManager
+from django.shortcuts import render
 
 # Create your views here.
 
