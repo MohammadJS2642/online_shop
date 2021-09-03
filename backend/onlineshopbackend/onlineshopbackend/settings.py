@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',
     'controllers',
     'models',
     'api.apps.ApiConfig',
@@ -50,12 +51,16 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+
+    'corsheaders.middleware.CorsMiddleware',
+
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 ROOT_URLCONF = 'onlineshopbackend.urls'
 
@@ -131,3 +136,36 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# -----------------------------------------------------
+# _______CORS=Cross_Origin Resource Sharing_______
+
+# 1-  pip install django-cors-headers
+
+# 2- INSTALLED_APPS=[
+#   ...
+#   'corsheaders',
+#   ...
+# ]
+
+# 3- MIDDLEWARE = [
+#   'django.middleware.security.SecurityMiddleware',
+#   ...
+#   'django.middleware.clickjacking.XFrameOptionsMiddleware',
+#   'corsheaders.middleware.CorsMiddleware',
+# ]
+
+# 4- allow access for all domains
+# CORS_ALLOW_ALL_ORIGINS = True
+
+# Alternatively you can specify which domains you want to give access
+#  to by doing the following
+#
+# CORS_ORIGIN_ALLOW_ALL = False
+# CORS_ORIGIN_WHITELIST = (
+#     'http://localhost:3000',
+# )
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
+]
+# -----------------------------------------------------
